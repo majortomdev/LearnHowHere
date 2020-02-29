@@ -5,7 +5,7 @@
       <th>Course Name</th>
       <th>Provided by</th>
       <th>Certification</th>
-      <th>Time required</th>
+      <th>Weeks required</th>
       <th>Prerequisites</th>
       <th>Cost</th>
       <th>Course Code</th>
@@ -19,7 +19,32 @@
       <td>{{ temp.certification }}</td>
       <td>{{ temp.duration }}</td>
       <td>{{ temp.prereqs }}</td>
-      <td>{{ temp.price }}</td>
+      <td>{{ temp.price | currency: 'EUR' }}</td>
       <td>{{ temp.code }}</td>
     </tr>
   </tbody>
+
+
+ </table>
+
+
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Courses Lasting under 4 months</th>
+        <th>Certification</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+
+      <tbody *ngFor="let temp2 of courseList">
+        <tr *ngIf="temp2.duration<14">
+            <td>{{temp2.courseName}}</td>
+            <td>{{temp2.certification}}</td>
+            <td>{{temp2.price | currency: 'EUR' }}</td>
+       </tr>
+    </tbody>
+  </table>
+
+

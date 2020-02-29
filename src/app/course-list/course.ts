@@ -2,7 +2,7 @@
 export class Course {
 
   constructor(public courseName: string, public tutor: string, public certification: string,
-              public duration: string, public prereqs: string, public price: string, public code:string ) {
+              public duration: number, public prereqs: string, public price: number, public code: string ) {
 
               }
 }
