@@ -1,2 +1,22 @@
-<p>course-list works!</p>
-<p>well add a table or such here displaying the courses available</p>
+<table border='1'>
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Provided by</th>
+      <th>Certifiication</th>
+      <th>Time required</th>
+      <th>Prerequisites</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let temp of courseList">
+      <td>{{ temp.courseName }}</td>
+      <td>{{ temp.tutor }}</td>
+      <td>{{ temp.certification }}</td>
+      <td>{{ temp.duration }}</td>
+      <td>{{ temp.prereqs }}</td>
+      <td>{{ temp.price }}</td>
+    </tr>
+  </tbody>
