@@ -1,4 +1,4 @@
- <table class="table table-hover">
+ <table class="table table-condensed">
 
   <thead class="thead-dark">
     <tr>
@@ -11,9 +11,9 @@
       <th>Course Code</th>
     </tr>
   </thead>
-
+<!-- using ngClass to change css on elements conditionally: -->
   <tbody>
-    <tr *ngFor="let temp of courseList">
+    <tr *ngFor="let temp of courseList" [ngClass]="{'highlight': temp.price>500}">
       <td>{{ temp.courseName }}</td>
       <td>{{ temp.tutor }}</td>
       <td>{{ temp.certification }}</td>
@@ -29,17 +29,17 @@
 
 
 
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th>Courses Lasting under 4 months</th>
+        <th>Courses Lasting over 6 months</th>
         <th>Certification</th>
         <th>Cost</th>
       </tr>
     </thead>
 
       <tbody *ngFor="let temp2 of courseList">
-        <tr *ngIf="temp2.duration<14">
+        <tr *ngIf="temp2.duration>14">
             <td>{{temp2.courseName}}</td>
             <td>{{temp2.certification}}</td>
             <td>{{temp2.price | currency: 'EUR' }}</td>
